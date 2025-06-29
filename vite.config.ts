@@ -4,7 +4,7 @@ import Checker from 'vite-plugin-checker'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/',
+  base: '/prompt.pixel.frontend/',
   plugins: [
     react(),
     Checker({
