@@ -2,14 +2,17 @@ import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import './App.css';
 import { store } from '@/app/provider/store';
-import { miniApp } from '@telegram-apps/sdk-react';
+import { viewport, miniApp } from '@telegram-apps/sdk-react';
+
 
 const App: React.FC = () => {
   useEffect(() => {
-    // Устанавливаем цвет заголовка и фона
-    if (miniApp.setHeaderColor.isAvailable()) {
-      miniApp.setHeaderColor('#ffffff'); // светлый фон
+    if (viewport.mount.isAvailable()) {
+      // После монтирования попробуем развернуть
+      viewport.expand?.();
     }
+    // Меняем цвет Telegram-хедера (на случай, если он виден)
+    miniApp.setHeaderColor?.('#ffffff');
   }, []);
 
   const handleClose = () => {
