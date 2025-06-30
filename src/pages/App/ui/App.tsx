@@ -10,6 +10,7 @@ const App: React.FC = () => {
     if (viewport.mount.isAvailable()) {
       // После монтирования попробуем развернуть
       viewport.expand?.();
+      viewport.requestFullscreen?.();
     }
     // Меняем цвет Telegram-хедера (на случай, если он виден)
     miniApp.setHeaderColor?.('#ffffff');
