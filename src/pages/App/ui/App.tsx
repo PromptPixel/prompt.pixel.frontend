@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import './App.css';
 import { store } from '@/app/provider/store';
-import { viewport, miniApp } from '@telegram-apps/sdk-react';
+import { viewport, miniApp, disableVerticalSwipes } from '@telegram-apps/sdk-react';
 
 
 const App: React.FC = () => {
@@ -11,6 +11,7 @@ const App: React.FC = () => {
       // После монтирования попробуем развернуть
       viewport.expand?.();
       viewport.requestFullscreen?.();
+      disableVerticalSwipes();
     }
     // Меняем цвет Telegram-хедера (на случай, если он виден)
     miniApp.setHeaderColor?.('#ffffff');
